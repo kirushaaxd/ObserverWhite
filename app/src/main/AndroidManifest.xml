@@ -6,12 +6,15 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/observer_icon"
+        android:icon="@drawable/observer_white_logo_w"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/observer_icon"
+        android:roundIcon="@drawable/observer_white_logo_w"
         android:supportsRtl="true"
         android:theme="@style/Theme.ObserverWhite"
         tools:targetApi="31">
+        <activity
+            android:name=".TownGrowthActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -13,6 +13,12 @@
         android:theme="@style/Theme.ObserverWhite"
         tools:targetApi="31">
         <activity
+            android:name=".RandomEventActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RandomPlotActivity"
+            android:exported="false" />
+        <activity
             android:name=".TownGrowthActivity"
             android:exported="false" />
         <activity

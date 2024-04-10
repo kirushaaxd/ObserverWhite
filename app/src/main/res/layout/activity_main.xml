@@ -16,6 +16,7 @@
         android:src="@drawable/observer_white_name"/>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/continue_btn"
         style="@style/MenuButton"
         android:layout_width="230dp"
         android:layout_marginTop="70dp"
@@ -25,13 +26,13 @@
         />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/new_game_btn"
         style="@style/MenuButton"
         android:layout_width="230dp"
         android:layout_marginTop="20dp"
         android:layout_height="65dp"
         android:layout_gravity="center_horizontal"
-        android:text="Новая игра"
-        />
+        android:text="Новая игра" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -39,13 +40,13 @@
         android:layout_weight="1"/>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/quit_btn"
         style="@style/MenuButton"
         android:layout_width="230dp"
         android:layout_marginTop="60dp"
         android:layout_height="65dp"
         android:layout_gravity="center_horizontal"
-        android:text="Выйти"
-        />
+        android:text="Выйти" />
 
     <LinearLayout
         android:layout_width="wrap_content"

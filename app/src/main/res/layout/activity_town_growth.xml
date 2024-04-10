@@ -8,33 +8,35 @@
     android:background="@color/white"
     tools:context=".TownGrowthActivity">
 
-
     <LinearLayout
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/back_to_menu_btn"
             style="@style/TownButton"
             android:layout_width="175dp"
             android:layout_height="75dp"
             android:layout_gravity="center_horizontal"
             android:text="Главное меню"
-            android:layout_marginStart="10dp"
-            />
+            android:layout_marginStart="10dp" />
+
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/buy_upgrades_btn"
             style="@style/TownButton"
             android:layout_width="175dp"
             android:layout_height="75dp"
             android:layout_gravity="center_horizontal"
             android:text="Купить улучшения"
-            android:layout_marginEnd="10dp"
-            />
+            android:layout_marginEnd="10dp" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -47,11 +49,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/coin"/>
+
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/money_text"
                 android:layout_width="70dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="10dp"
@@ -59,6 +64,7 @@
                 android:textSize="25dp"
                 android:textStyle="bold"
                 android:text="200"/>
+
         </LinearLayout>
 
         <LinearLayout
@@ -69,7 +75,9 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/entertainment"/>
+
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/happiness_text"
                 android:layout_width="70dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="10dp"
@@ -77,17 +85,21 @@
                 android:textSize="25dp"
                 android:textStyle="bold"
                 android:text="200"/>
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/food"/>
+
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/food_text"
                 android:layout_width="70dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="10dp"
@@ -95,26 +107,43 @@
                 android:textSize="25dp"
                 android:textStyle="bold"
                 android:text="200"/>
+
         </LinearLayout>
+
     </LinearLayout>
 
-    <ImageView
+    <FrameLayout
         android:layout_marginTop="10dp"
         android:layout_gravity="center_horizontal"
         android:layout_width="380dp"
-        android:layout_height="450dp"
-        android:scaleType="fitXY"
-        android:src="@mipmap/ic_launcher"
-        />
+        android:layout_height="450dp">
+
+
+        <ImageView
+            android:layout_width="380dp"
+            android:layout_height="450dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/population_text"
+            style="@style/MenuButton"
+            android:gravity="start"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0"/>
+
+    </FrameLayout>
 
     <ImageButton
+        android:id="@+id/increase_money_btn"
         android:src="@drawable/raise_money"
         android:layout_width="match_parent"
         android:scaleType="centerInside"
         android:layout_marginTop="10dp"
         android:layout_height="105dp"
         android:layout_gravity="center"
-        android:background="@color/white"
-        />
+        android:background="@color/white"/>
 
 </LinearLayout>

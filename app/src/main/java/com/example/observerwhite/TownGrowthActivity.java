@@ -1,6 +1,7 @@
 package com.example.observerwhite;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +13,7 @@ import com.example.observerwhite.databinding.ActivityTownGrowthBinding;
 public class TownGrowthActivity extends AppCompatActivity {
 
     private ActivityTownGrowthBinding binding;
-    private CitySimulation citySimulation;
+    private static CitySimulation citySimulation;
 
     private Handler mHandler = new Handler(Looper.getMainLooper());
 
@@ -56,11 +57,21 @@ public class TownGrowthActivity extends AppCompatActivity {
             finish();
         });
 
+        binding.buyUpgradesBtn.setOnClickListener(v -> {
+            FragmentManager fm = getSupportFragmentManager();
+            citySimulation.showUpgrades(fm);
+        });
+
         updateUI();
+    }
+
+    public static void createClickListenersUpgrades(){
+        citySimulation.createClickListeners();
     }
 
     private void updateUI() {
         mHandler.postDelayed(() -> {
+            binding.moneyText.setText(String.valueOf(citySimulation.getMoney()));
             binding.happinessText.setText(String.valueOf(citySimulation.getCurrentHappiness()));
             binding.foodText.setText(String.valueOf(citySimulation.getCurrentFood()));
             binding.populationText.setText(String.valueOf(citySimulation.getPopulation()));
@@ -68,4 +79,5 @@ public class TownGrowthActivity extends AppCompatActivity {
             updateUI();
         }, 1000);
     }
+
 }

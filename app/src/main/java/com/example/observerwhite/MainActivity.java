@@ -1,15 +1,11 @@
 package com.example.observerwhite;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.observerwhite.databinding.ActivityMainBinding;
-
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 

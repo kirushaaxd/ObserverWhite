@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.View;
+
+import androidx.fragment.app.FragmentManager;
 
 import java.util.Random;
 
@@ -31,10 +34,14 @@ public class CitySimulation {
     private int mHappinessMaxCoef;
     private int mFoodMaxCoef;
 
+    private TownUpgradeFragment townUpgradeFragment;
+
     public CitySimulation(Context context) {
         mContext = context;
         mPrefs = mContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         mHandler = new Handler(Looper.getMainLooper());
+        townUpgradeFragment = new TownUpgradeFragment();
+        townUpgradeFragment.setStartPrice();
         loadPreferences();
         startAutoSaveTimer();
         startPopulationGrowthTimer();
@@ -93,6 +100,102 @@ public class CitySimulation {
         editor.putInt(KEY_HAPPINESS_MAX_COEF, mHappinessMaxCoef);
         editor.putInt(KEY_FOOD_MAX_COEF, mFoodMaxCoef);
         editor.apply();
+    }
+
+    private void setUpgradeClickListeners(){
+        townUpgradeFragment.binding.upgradeCoinPerClickBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int price = townUpgradeFragment.getUpgradeCoinPrice();
+                if (mMoney >= price){
+                    mMoneyClickCoef += 1;
+                    mMoney -= price;
+                    townUpgradeFragment.setUpgradeCoinPrice((int) (price * 2.5));
+                    townUpgradeFragment.updateView();
+                }
+            }
+        });
+
+        townUpgradeFragment.binding.upgradeEntertainmentBuyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int price = townUpgradeFragment.getUpgradeEntertainmentBuyPrice();
+                if (mMoney >= price){
+                    mCurrentHappiness += 25;
+                    mMoney -= price;
+                    townUpgradeFragment.setUpgradeEntertainmentBuyPrice((int) (price * 1.05));
+
+                    int[] upgrades = townUpgradeFragment.getUpgradeLevel();
+                    upgrades[0]++;
+                    townUpgradeFragment.setUpgradeLevel(upgrades);
+
+                    townUpgradeFragment.updateView();
+                }
+            }
+        });
+
+        townUpgradeFragment.binding.upgradeEntertainmentMaxBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int price = townUpgradeFragment.getUpgradeEntertainmentMaxPrice();
+                if (mMoney >= price){
+                    mHappinessMaxCoef += 15;
+                    mMoney -= price;
+                    townUpgradeFragment.setUpgradeEntertainmentMaxPrice((int) (price * 1.05));
+
+                    int[] upgrades = townUpgradeFragment.getUpgradeLevel();
+                    upgrades[1]++;
+                    townUpgradeFragment.setUpgradeLevel(upgrades);
+
+                    townUpgradeFragment.updateView();
+                }
+            }
+        });
+
+        townUpgradeFragment.binding.upgradeFoodBuyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int price = townUpgradeFragment.getUpgradeFoodBuyPrice();
+                if (mMoney >= price){
+                    mCurrentFood += 20;
+                    mMoney -= price;
+                    townUpgradeFragment.setUpgradeFoodBuyPrice((int) (price * 1.05));
+
+                    int[] upgrades = townUpgradeFragment.getUpgradeLevel();
+                    upgrades[2]++;
+                    townUpgradeFragment.setUpgradeLevel(upgrades);
+
+                    townUpgradeFragment.updateView();
+                }
+            }
+        });
+
+        townUpgradeFragment.binding.upgradeFoodMaxBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int price = townUpgradeFragment.getUpgradeFoodMaxPrice();
+                if (mMoney >= price){
+                    mFoodMaxCoef += 15;
+                    mMoney -= price;
+                    townUpgradeFragment.setUpgradeFoodMaxPrice((int) (price * 1.05));
+
+                    int[] upgrades = townUpgradeFragment.getUpgradeLevel();
+                    upgrades[3]++;
+                    townUpgradeFragment.setUpgradeLevel(upgrades);
+
+                    townUpgradeFragment.updateView();
+
+                }
+            }
+        });
+    }
+
+    public void showUpgrades(FragmentManager fm){
+        townUpgradeFragment.show(fm, "townUpgrades");
+    }
+
+    public void createClickListeners(){
+        setUpgradeClickListeners();
     }
 
     // Getters and setters

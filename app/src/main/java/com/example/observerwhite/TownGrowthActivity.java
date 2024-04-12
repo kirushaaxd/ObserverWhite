@@ -27,19 +27,9 @@ public class TownGrowthActivity extends AppCompatActivity {
         Intent intent = getIntent();
         boolean isNewGame = intent.getBooleanExtra("isNewGame", true);
 
-        citySimulation = new CitySimulation(this);
+        citySimulation = new CitySimulation(this, getSupportFragmentManager(), isNewGame);
 
-        if (isNewGame) {
-            citySimulation.setStage(1);
-            citySimulation.setMoney(0);
-            citySimulation.setPopulation(10);
-            citySimulation.setCurrentHappiness(100);
-            citySimulation.setCurrentFood(100);
-
-            binding.moneyText.setText(String.valueOf(0));
-        } else {
-            binding.moneyText.setText(String.valueOf(citySimulation.getMoney()));
-        }
+        binding.moneyText.setText(String.valueOf(citySimulation.getMoney()));
 
         binding.happinessText.setText(String.valueOf(citySimulation.getCurrentHappiness()));
         binding.foodText.setText(String.valueOf(citySimulation.getCurrentFood()));
@@ -58,8 +48,7 @@ public class TownGrowthActivity extends AppCompatActivity {
         });
 
         binding.buyUpgradesBtn.setOnClickListener(v -> {
-            FragmentManager fm = getSupportFragmentManager();
-            citySimulation.showUpgrades(fm);
+            citySimulation.showUpgrades();
         });
 
         updateUI();

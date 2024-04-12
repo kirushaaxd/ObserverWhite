@@ -1,9 +1,12 @@
 package com.example.observerwhite;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
 
 import com.example.observerwhite.databinding.FragmentTownUpgradeBinding;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
@@ -15,33 +18,27 @@ public class TownUpgradeFragment extends BottomSheetDialogFragment {
     private int upgradeEntertainmentMaxPrice;
     private int upgradeFoodBuyPrice;
     private int upgradeFoodMaxPrice;
-    private String[] entertainmentBuyUpgrades;
-    private String[] entertainmentMaxUpgrades;
-    private String[] foodBuyUpgrades;
-    private String[] foodMaxUpgrades;
+    private String[] entertainmentBuyUpgrades = new String[]{
+            "Провести ярмарку", "2", "3", "4", "5", "6"
+    };
+    private String[] entertainmentMaxUpgrades = new String[]{
+            "Построить цирк", "2", "3", "4", "5", "6"
+    };
+    private String[] foodBuyUpgrades = new String[]{
+            "Собрать пшеницу", "2", "3", "4", "5", "6"
+    };
+    private String[] foodMaxUpgrades = new String[]{
+        "Построить ферму", "2", "3", "4", "5", "6"
+    };
+
     private int[] upgradeLevel = new int[]{0, 0, 0, 0};
 
     public void setStartPrice(){
-        upgradeCoinPrice = 200;
-        upgradeEntertainmentBuyPrice = 30;
-        upgradeEntertainmentMaxPrice = 60;
-        upgradeFoodBuyPrice = 30;
-        upgradeFoodMaxPrice = 60;
-
-        entertainmentBuyUpgrades = new String[]{
-                "Провести ярмарку", "2", "3", "4", "5", "6"
-        };
-        entertainmentMaxUpgrades = new String[]{
-                "Построить цирк", "2", "3", "4", "5", "6"
-        };
-
-        foodBuyUpgrades = new String[]{
-                "Собрать пшеницу", "2", "3", "4", "5", "6"
-        };
-
-        foodMaxUpgrades = new String[]{
-                "Построить ферму", "2", "3", "4", "5", "6"
-        };
+//        upgradeCoinPrice = 200;
+//        upgradeEntertainmentBuyPrice = 30;
+//        upgradeEntertainmentMaxPrice = 60;
+//        upgradeFoodBuyPrice = 30;
+//        upgradeFoodMaxPrice = 60;
     }
 
     @Override
@@ -56,6 +53,12 @@ public class TownUpgradeFragment extends BottomSheetDialogFragment {
         super.onStart();
         updateView();
         TownGrowthActivity.createClickListenersUpgrades();
+    }
+
+    @Override
+    public void onCancel(@NonNull DialogInterface dialog) {
+        super.onCancel(dialog);
+        CitySimulation.Unpause();
     }
 
     public void updateView(){

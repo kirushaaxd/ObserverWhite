@@ -191,7 +191,8 @@ public class CitySimulation {
     }
 
     public void showUpgrades(FragmentManager fm){
-        townUpgradeFragment.show(fm, "townUpgrades");
+        if(!townUpgradeFragment.isAdded())
+            townUpgradeFragment.show(fm, "townUpgrades");
     }
 
     public void createClickListeners(){

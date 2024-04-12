@@ -136,14 +136,20 @@
 
     </FrameLayout>
 
-    <ImageButton
+    <LinearLayout
         android:id="@+id/increase_money_btn"
-        android:src="@drawable/raise_money"
         android:layout_width="match_parent"
-        android:scaleType="centerInside"
-        android:layout_marginTop="10dp"
-        android:layout_height="105dp"
-        android:layout_gravity="center"
-        android:background="@color/white"/>
+        android:layout_height="match_parent"
+        android:clickable="true">
 
+        <ImageView
+            android:src="@drawable/raise_money"
+            android:layout_width="match_parent"
+            android:layout_height="105dp"
+            android:scaleType="centerInside"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:background="@color/white"/>
+
+    </LinearLayout>
 </LinearLayout>

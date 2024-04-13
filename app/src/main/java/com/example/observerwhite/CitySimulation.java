@@ -23,7 +23,7 @@ public class CitySimulation {
     private static final String KEY_UPGRADE_COIN_PRICE = "food_upgrade_coin_price";
     private static final String KEY_UPGRADE_ENTERTAINMENT_BUY_PRICE = "food_upgrade_entertainment_buy_price";
     private static final String KEY_UPGRADE_ENTERTAINMENT_MAX_PRICE = "food_upgrade_entertainment_max_price";
-    private static final String KEY_UPGRADE_FOOD_BUY_PRICE = "food_upgrade_food_max_price";
+    private static final String KEY_UPGRADE_FOOD_BUY_PRICE = "food_upgrade_food_buy_price";
     private static final String KEY_UPGRADE_FOOD_MAX_PRICE = "food_upgrade_food_max_price";
     private static final String KEY_FOOD_UPGRADE = "food_upgrade";
     private static final String KEY_FOOD_MAX = "food_max";

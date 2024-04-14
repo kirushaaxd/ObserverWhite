@@ -44,11 +44,16 @@ public class TownGrowthActivity extends AppCompatActivity {
 
         binding.backToMenuBtn.setOnClickListener(v -> {
             citySimulation.savePreferences();
+            Intent intent1 = new Intent(this, MainActivity.class);
+            startActivity(intent1);
             finish();
         });
 
         binding.buyUpgradesBtn.setOnClickListener(v -> {
             citySimulation.showUpgrades();
+            Intent intent1 = new Intent(this, MainActivity.class);
+            startActivity(intent1);
+            finish();
         });
 
         updateUI();

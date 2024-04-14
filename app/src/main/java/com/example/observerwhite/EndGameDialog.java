@@ -23,6 +23,9 @@ public class EndGameDialog extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dismiss();
+                        Intent intent = new Intent(getActivity(), MainActivity.class);
+                        intent.putExtra("isLoose", true);
+                        startActivity(intent);
                         getActivity().finish();
                     }
                 });

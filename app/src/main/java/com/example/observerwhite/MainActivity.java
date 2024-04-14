@@ -17,20 +17,25 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        boolean isLoose = getIntent().getBooleanExtra("isLoose", false);
+
         binding.continueBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(this, TownGrowthActivity.class);
-            intent.putExtra("isNewGame", false);
-            startActivity(intent);
+            startGame(isLoose);
         });
 
         binding.newGameBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(this, TownGrowthActivity.class);
-            intent.putExtra("isNewGame", true);
-            startActivity(intent);
+            startGame(true);
         });
 
         binding.quitBtn.setOnClickListener(v -> {
             finish();
         });
+    }
+
+    private void startGame(boolean isNewGame) {
+        Intent intent = new Intent(this, TownGrowthActivity.class);
+        intent.putExtra("isNewGame", isNewGame);
+        startActivity(intent);
+        finish();
     }
 }

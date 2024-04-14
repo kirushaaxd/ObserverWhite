@@ -8,15 +8,27 @@
     tools:context=".RandomPlotActivity">
 
     <ImageView
-        android:id="@+id/event_image"
+        android:id="@+id/event_image_back"
         android:layout_height="0dp"
         android:layout_width="0dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/continue_event"
-        android:scaleType="fitXY"
+        android:scaleType="fitCenter"
         android:src="@mipmap/ic_launcher"
+        android:layout_margin="16dp"/>
+
+    <ImageView
+        android:id="@+id/event_image_front"
+        android:layout_height="0dp"
+        android:layout_width="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/continue_event"
+        android:scaleType="fitCenter"
+        android:src="@drawable/observer_white_name"
         android:layout_margin="16dp"/>
 
     <LinearLayout
@@ -29,6 +41,7 @@
 
         <TextView
             style="@style/MenuButton"
+            android:id="@+id/text"
             android:gravity="start"
             android:textAllCaps="false"
             android:layout_marginBottom="16dp"
@@ -38,6 +51,7 @@
 
         <com.google.android.material.button.MaterialButton
             style="@style/MenuButton"
+            android:id="@+id/first_btn"
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_gravity="center_horizontal"
@@ -45,6 +59,7 @@
 
         <com.google.android.material.button.MaterialButton
             style="@style/MenuButton"
+            android:id="@+id/second_btn"
             android:layout_width="match_parent"
             android:layout_marginTop="16dp"
             android:layout_height="65dp"

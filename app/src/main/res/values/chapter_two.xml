@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="chapter_2_messages">
+        <item>Что ты думаешь?</item>
+        <item>Что ты дурак?</item>
+    </string-array>
+
+
+    <string-array name="chapter_2_answers">
+        <item>1/ничего</item>
+        <item>2/ничего/чего</item>
+    </string-array>
+
+    <string-array name="chapter_2_parameters">
+        <item>ic_launcher_background/coin</item>
+        <item>ic_launcher_background/coin</item>
+    </string-array>
+</resources>

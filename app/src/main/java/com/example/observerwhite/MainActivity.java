@@ -10,6 +10,7 @@ import com.example.observerwhite.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    private boolean nextLevel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,8 +18,15 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        Intent serviceIntent = new Intent(this, AudioService.class);
-        startService(serviceIntent);
+        if (!AudioService.isRunning) {
+            AudioService.create(this);
+            AudioService.isRunning = true;
+        }
+        else{
+            AudioService.player.start();
+        }
+
+        nextLevel = false;
 
         boolean isLoose = getIntent().getBooleanExtra("isLoose", false);
 
@@ -38,7 +46,25 @@ public class MainActivity extends AppCompatActivity {
     private void startGame(boolean isNewGame) {
         Intent intent = new Intent(this, TownGrowthActivity.class);
         intent.putExtra("isNewGame", isNewGame);
+        nextLevel = true;
         startActivity(intent);
         finish();
+    }
+
+    public void onPause(){
+        if (!nextLevel)
+            AudioService.player.pause();
+        super.onPause();
+    }
+
+    public void onDestroy(){
+        if (!nextLevel)
+            AudioService.player.pause();
+        super.onDestroy();
+    }
+
+    public void onResume(){
+        AudioService.player.start();
+        super.onResume();
     }
 }

@@ -16,6 +16,8 @@ public class TownGrowthActivity extends AppCompatActivity {
     private static CitySimulation citySimulation;
 
     private Handler mHandler = new Handler(Looper.getMainLooper());
+    private boolean nextLevel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,8 @@ public class TownGrowthActivity extends AppCompatActivity {
         binding = ActivityTownGrowthBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_town_growth);
         setContentView(binding.getRoot());
+
+        nextLevel = false;
 
         Intent intent = getIntent();
         boolean isNewGame = intent.getBooleanExtra("isNewGame", true);
@@ -45,6 +49,7 @@ public class TownGrowthActivity extends AppCompatActivity {
         binding.backToMenuBtn.setOnClickListener(v -> {
             citySimulation.savePreferences();
             Intent intent1 = new Intent(this, MainActivity.class);
+            nextLevel = true;
             startActivity(intent1);
             finish();
         });
@@ -77,5 +82,27 @@ public class TownGrowthActivity extends AppCompatActivity {
 
             updateUI();
         }, 1000);
+    }
+
+    public void onStart(){
+        AudioService.player.start();
+        super.onStart();
+    }
+
+    public void onPause(){
+        if (!nextLevel)
+            AudioService.player.pause();
+        super.onPause();
+    }
+
+    public void onDestroy(){
+        if (!nextLevel)
+            AudioService.player.pause();
+        super.onDestroy();
+    }
+
+    public void onResume(){
+        AudioService.player.start();
+        super.onResume();
     }
 }

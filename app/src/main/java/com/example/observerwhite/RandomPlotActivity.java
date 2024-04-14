@@ -24,6 +24,7 @@ public class RandomPlotActivity extends AppCompatActivity {
     private int chapterLength;
     private int pos;
     private int chapter;
+    private boolean nextLevel;
 
 
     private void LoadChapterInfo(int chapter){
@@ -85,6 +86,7 @@ public class RandomPlotActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        nextLevel = false;
         binding = ActivityRandomPlotBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -108,6 +110,24 @@ public class RandomPlotActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        AudioService.player.start();
         LoadChapterInfo(chapter);
+    }
+
+    public void onPause(){
+        if (!nextLevel)
+            AudioService.player.pause();
+        super.onPause();
+    }
+
+    public void onDestroy(){
+        if (!nextLevel)
+            AudioService.player.pause();
+        super.onDestroy();
+    }
+
+    public void onResume(){
+        AudioService.player.start();
+        super.onResume();
     }
 }

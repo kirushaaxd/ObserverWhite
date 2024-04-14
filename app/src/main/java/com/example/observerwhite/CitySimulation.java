@@ -34,7 +34,7 @@ public class CitySimulation {
 
     private Context mContext;
     private SharedPreferences mPrefs;
-    private Handler mHandler;
+    public Handler mHandler;
     private FragmentManager fm;
     private Activity mActivity;
 

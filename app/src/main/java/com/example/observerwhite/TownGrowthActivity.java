@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.WindowManager;
 
 import com.example.observerwhite.databinding.ActivityTownGrowthBinding;
 
@@ -22,6 +23,7 @@ public class TownGrowthActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         binding = ActivityTownGrowthBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_town_growth);
         setContentView(binding.getRoot());
@@ -50,6 +52,7 @@ public class TownGrowthActivity extends AppCompatActivity {
             citySimulation.savePreferences();
             Intent intent1 = new Intent(this, MainActivity.class);
             nextLevel = true;
+            citySimulation.mHandler.removeCallbacksAndMessages(null);
             startActivity(intent1);
             finish();
         });

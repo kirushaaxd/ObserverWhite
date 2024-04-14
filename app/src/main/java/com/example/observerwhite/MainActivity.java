@@ -17,6 +17,9 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        Intent serviceIntent = new Intent(this, AudioService.class);
+        startService(serviceIntent);
+
         boolean isLoose = getIntent().getBooleanExtra("isLoose", false);
 
         binding.continueBtn.setOnClickListener(v -> {

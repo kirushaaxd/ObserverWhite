@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ObserverWhite"
         tools:targetApi="31">
+        <service android:name=".AudioService"  android:enabled="true"></service>
         <activity
             android:name=".RandomEventFragment"
             android:exported="false" />

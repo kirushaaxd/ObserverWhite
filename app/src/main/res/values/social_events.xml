@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="social_images">
+        <item>@drawable/entertainment</item>
+        <item>@drawable/entertainment</item>
+    </integer-array>
+    <string-array name="social_texts">
+        <item>Социальное событие 1: Все хорошо...</item>
+        <item>Социальное событие 2: Все плохо....</item>
+    </string-array>
+    <integer-array name="social_money_decreases">
+        <item>10</item>
+        <item>-15</item>
+    </integer-array>
+</resources>

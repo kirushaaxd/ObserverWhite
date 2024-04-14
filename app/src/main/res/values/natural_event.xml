@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="natural_images">
+        <item>@drawable/food</item>
+        <item>@drawable/food</item>
+    </integer-array>
+    <string-array name="natural_texts">
+        <item>Природные событие 1: Все хорошо...</item>
+        <item>Природные событие 2: Все плохо....</item>
+    </string-array>
+    <integer-array name="natural_money_decreases">
+        <item>10</item>
+        <item>-20</item>
+    </integer-array>
+</resources>

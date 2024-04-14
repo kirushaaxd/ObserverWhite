@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".RandomEventActivity">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/event_image"
-        android:layout_height="0dp"
-        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/continue_event"
         android:scaleType="fitXY"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/coin"
         android:layout_margin="16dp"/>
 
     <LinearLayout
@@ -28,6 +27,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/event_text"
             style="@style/MenuButton"
             android:gravity="start"
             android:textAllCaps="false"
@@ -37,11 +37,12 @@
             android:text="Здесь какой то текст, его вероятно много, Здесь какой то текст, его вероятно много"/>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/ok_event_btn"
             style="@style/MenuButton"
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_gravity="center_horizontal"
-            android:text="Далее" />
+            android:text="Ок" />
 
     </LinearLayout>
 

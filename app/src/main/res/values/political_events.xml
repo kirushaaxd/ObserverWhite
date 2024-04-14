@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="political_images">
+        <item>@drawable/coin</item>
+        <item>@drawable/coin</item>
+    </array>
+    <string-array name="political_texts">
+        <item>Политическое событие 1: Все хорошо...</item>
+        <item>Политическое событие 2: Все плохо....</item>
+    </string-array>
+    <integer-array name="political_money_decreases">
+        <item>10</item>
+        <item>-15</item>
+    </integer-array>
+</resources>

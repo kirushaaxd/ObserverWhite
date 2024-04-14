@@ -18,6 +18,7 @@ public class TownUpgradeFragment extends BottomSheetDialogFragment {
     private int upgradeEntertainmentMaxPrice;
     private int upgradeFoodBuyPrice;
     private int upgradeFoodMaxPrice;
+
     private String[] entertainmentBuyUpgrades = new String[]{
             "Провести ярмарку", "Цирковое представление", "Городские игры",
             "Театральное представление", "Музыкальный фестиваль", "День города"
@@ -37,15 +38,7 @@ public class TownUpgradeFragment extends BottomSheetDialogFragment {
             "Построить пасеку", "Хижина рыболова",
     };
 
-    private int[] upgradeLevel = new int[]{0, 0, 0, 0};
-
-    public void setStartPrice(){
-//        upgradeCoinPrice = 200;
-//        upgradeEntertainmentBuyPrice = 30;
-//        upgradeEntertainmentMaxPrice = 60;
-//        upgradeFoodBuyPrice = 30;
-//        upgradeFoodMaxPrice = 60;
-    }
+    private int[] upgradeLevel = new int[] { 0, 0, 0, 0 };
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

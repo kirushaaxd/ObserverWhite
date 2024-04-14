@@ -47,6 +47,8 @@ public class CitySimulation {
     private static boolean isPause;
 
     private TownUpgradeFragment townUpgradeFragment;
+    private RandomEventFragment randomEventFragment;
+    private NewGameInfoFragment newGameInfoFragment;
 
     public CitySimulation(Context context, FragmentManager fragmentManager, boolean isNewGame) {
         mContext = context;
@@ -54,11 +56,17 @@ public class CitySimulation {
         mHandler = new Handler(Looper.getMainLooper());
         fm = fragmentManager;
         townUpgradeFragment = new TownUpgradeFragment();
-        townUpgradeFragment.setStartPrice();
+        randomEventFragment = new RandomEventFragment();
+        if(isNewGame){
+            isPause = true;
+            newGameInfoFragment = new NewGameInfoFragment();
+            newGameInfoFragment.show(fm, "NEW GAME INFO");
+        }
         loadPreferences(isNewGame);
         startAutoSaveTimer();
         startPopulationGrowthTimer();
         startHappinessAndFoodDecayTimer();
+        startRandomEventTimer();
     }
 
     private void loadPreferences(boolean isNewGame) {
@@ -129,6 +137,20 @@ public class CitySimulation {
         }, 1000);
     }
 
+    private void startRandomEventTimer(){
+        mHandler.postDelayed(() -> {
+            if(isPause || randomEventFragment.isAdded()){
+                startRandomEventTimer();
+                return;
+            }
+
+            isPause = true;
+            randomEventFragment.show(fm, "RANDOM EVENT");
+
+            startRandomEventTimer();
+        }, new Random().nextInt(31000) + 30000);
+    }
+
     private void startHappinessAndFoodDecayTimer() {
         mHandler.postDelayed(() -> {
             if(isPause){
@@ -188,6 +210,8 @@ public class CitySimulation {
         editor.putInt(KEY_FOOD_MAX, upgrades[3]);
         editor.apply();
     }
+
+
 
     private void setUpgradeClickListeners(){
         townUpgradeFragment.binding.upgradeCoinPerClickBtn.setOnClickListener(new View.OnClickListener() {
@@ -295,6 +319,23 @@ public class CitySimulation {
 
     public void createClickListeners(){
         setUpgradeClickListeners();
+    }
+
+    public void createRandomEventClickListener(int money, int happiness, int food) {
+        randomEventFragment.binding.okEventBtn.setOnClickListener(v -> {
+            mMoney += money;
+            mCurrentHappiness += happiness;
+            mCurrentFood += food;
+            isPause = false;
+            randomEventFragment.dismiss();
+        });
+    }
+
+    public void createInfoNewGameClickListener() {
+        newGameInfoFragment.binding.infoOkBtn.setOnClickListener(v -> {
+            newGameInfoFragment.dismiss();
+            isPause = false;
+        });
     }
 
     // Getters and setters

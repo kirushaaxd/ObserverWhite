@@ -60,6 +60,14 @@ public class TownGrowthActivity extends AppCompatActivity {
         citySimulation.createClickListeners();
     }
 
+    public static void createRandomEventClickListener(int money, int happiness, int food){
+        citySimulation.createRandomEventClickListener(money, happiness, food);
+    }
+
+    public static void createInfoNewGameClickListener(){
+        citySimulation.createInfoNewGameClickListener();
+    }
+
     private void updateUI() {
         mHandler.postDelayed(() -> {
             binding.moneyText.setText(String.valueOf(citySimulation.getMoney()));

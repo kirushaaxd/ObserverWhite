@@ -19,16 +19,22 @@ public class TownUpgradeFragment extends BottomSheetDialogFragment {
     private int upgradeFoodBuyPrice;
     private int upgradeFoodMaxPrice;
     private String[] entertainmentBuyUpgrades = new String[]{
-            "Провести ярмарку", "2", "3", "4", "5", "6"
+            "Провести ярмарку", "Цирковое представление", "Городские игры",
+            "Театральное представление", "Музыкальный фестиваль", "День города"
     };
     private String[] entertainmentMaxUpgrades = new String[]{
-            "Построить цирк", "2", "3", "4", "5", "6"
+            "Построить цирк", "Построить театр", "Построить арену",
+            "Построить площадь", "Парк развлечений", "Построить сцену"
     };
     private String[] foodBuyUpgrades = new String[]{
-            "Собрать пшеницу", "2", "3", "4", "5", "6"
+            "Собрать пшеницу", "Сделать хлеб", "Развести коров",
+            "Развести свиней", "Собрать картофель", "Устроить охоту",
+            "Собрать мед", "Ловить рыбу"
     };
     private String[] foodMaxUpgrades = new String[]{
-        "Построить ферму", "2", "3", "4", "5", "6"
+            "Построить ферму", "Сделать загон", "Построить мельницу",
+            "Построить хлев", "Хижина охотника", "Вспахать поле",
+            "Построить пасеку", "Хижина рыболова",
     };
 
     private int[] upgradeLevel = new int[]{0, 0, 0, 0};
@@ -70,8 +76,8 @@ public class TownUpgradeFragment extends BottomSheetDialogFragment {
 
         binding.upgradeEntertainmentBuyText.setText(entertainmentBuyUpgrades[upgradeLevel[0] % 6]);
         binding.upgradeEntertainmentMaxText.setText(entertainmentMaxUpgrades[upgradeLevel[1] % 6]);
-        binding.upgradeFoodBuyText.setText(foodBuyUpgrades[upgradeLevel[2] % 6]);
-        binding.upgradeFoodMaxText.setText(foodMaxUpgrades[upgradeLevel[3] % 6]);
+        binding.upgradeFoodBuyText.setText(foodBuyUpgrades[upgradeLevel[2] % 8]);
+        binding.upgradeFoodMaxText.setText(foodMaxUpgrades[upgradeLevel[3] % 8]);
     }
 
     public int getUpgradeCoinPrice() {

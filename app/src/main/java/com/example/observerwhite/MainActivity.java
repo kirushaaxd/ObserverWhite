@@ -1,6 +1,8 @@
 package com.example.observerwhite;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.WindowManager;
 
@@ -13,12 +15,17 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private boolean nextLevel;
 
+    private SharedPreferences mPrefs;
+    private int mStage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        mPrefs = getSharedPreferences("CityPrefs", Context.MODE_PRIVATE);
 
         if (!AudioService.isRunning) {
             AudioService.create(this);
@@ -33,7 +40,17 @@ public class MainActivity extends AppCompatActivity {
         boolean isLoose = getIntent().getBooleanExtra("isLoose", false);
 
         binding.continueBtn.setOnClickListener(v -> {
-            startGame(isLoose);
+            mStage = mPrefs.getInt("stage", 1);
+
+            if(mStage == 1){
+                startGame(isLoose);
+                return;
+            }
+
+            Intent intent = new Intent(this, RandomPlotActivity.class);
+            nextLevel = true;
+            startActivity(intent);
+            finish();
         });
 
         binding.newGameBtn.setOnClickListener(v -> {

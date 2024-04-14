@@ -57,7 +57,7 @@ public class TownUpgradeFragment extends BottomSheetDialogFragment {
     @Override
     public void onCancel(@NonNull DialogInterface dialog) {
         super.onCancel(dialog);
-        CitySimulation.Unpause();
+        CitySimulation.unpause();
     }
 
     public void updateView(){

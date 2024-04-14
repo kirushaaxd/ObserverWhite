@@ -27,7 +27,7 @@ public class TownGrowthActivity extends AppCompatActivity {
         Intent intent = getIntent();
         boolean isNewGame = intent.getBooleanExtra("isNewGame", true);
 
-        citySimulation = new CitySimulation(this, getSupportFragmentManager(), isNewGame);
+        citySimulation = new CitySimulation(this, getSupportFragmentManager(), this, isNewGame);
 
         binding.moneyText.setText(String.valueOf(citySimulation.getMoney()));
 
@@ -78,5 +78,4 @@ public class TownGrowthActivity extends AppCompatActivity {
             updateUI();
         }, 1000);
     }
-
 }

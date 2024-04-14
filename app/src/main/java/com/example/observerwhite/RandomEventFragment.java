@@ -26,6 +26,8 @@ public class RandomEventFragment extends DialogFragment {
 
     public FragmentRandomEventBinding binding;
 
+    private RandomEvent randomEvent;
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -36,13 +38,19 @@ public class RandomEventFragment extends DialogFragment {
 
         builder.setView(binding.getRoot());
 
-        RandomEvent randomEvent = getRandomEvent(getContext(), new Random().nextInt(3));
+        randomEvent = getRandomEvent(getContext(), new Random().nextInt(3));
 
         binding.eventImage.setImageResource(randomEvent.getEventImage());
         binding.eventText.setText(randomEvent.getEventText());
         TownGrowthActivity.createRandomEventClickListener(randomEvent.getMoneyDecrease(), randomEvent.getHappinessDecrease(), randomEvent.getFoodDecrease());
 
         return builder.create();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        CitySimulation.randomEventUnpause(randomEvent.getMoneyDecrease(), randomEvent.getHappinessDecrease(), randomEvent.getFoodDecrease());
     }
 
     private RandomEvent getRandomEvent(Context context, int eventType) {

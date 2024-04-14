@@ -1,6 +1,8 @@
 package com.example.observerwhite;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Looper;
@@ -34,10 +36,11 @@ public class CitySimulation {
     private SharedPreferences mPrefs;
     private Handler mHandler;
     private FragmentManager fm;
+    private Activity mActivity;
 
-    private int mMoney;
-    private int mCurrentHappiness;
-    private int mCurrentFood;
+    private static int mMoney;
+    private static int mCurrentHappiness;
+    private static int mCurrentFood;
     private int mPopulation;
     private int mStage;
     private int mMoneyClickCoef;
@@ -50,11 +53,12 @@ public class CitySimulation {
     private RandomEventFragment randomEventFragment;
     private NewGameInfoFragment newGameInfoFragment;
 
-    public CitySimulation(Context context, FragmentManager fragmentManager, boolean isNewGame) {
+    public CitySimulation(Context context, FragmentManager fragmentManager, Activity activity, boolean isNewGame) {
         mContext = context;
         mPrefs = mContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         mHandler = new Handler(Looper.getMainLooper());
         fm = fragmentManager;
+        mActivity = activity;
         townUpgradeFragment = new TownUpgradeFragment();
         randomEventFragment = new RandomEventFragment();
         if(isNewGame){
@@ -128,11 +132,23 @@ public class CitySimulation {
                 return;
             }
 
-            if (mStage == 1) {
-                mPopulation += new Random().nextInt(2) + 1;
-            } else if (mStage == 2) {
-                mPopulation += new Random().nextInt(4) + 7;
+            int growthRate = mPopulation / 100; // Например, на каждые 1000 человек добавляется 1 человек роста
+            if (growthRate < 1) {
+                growthRate = 1; // Минимальная скорость роста населения
             }
+
+            mPopulation += (new Random().nextInt(3) + 1) * growthRate;
+
+            if(mPopulation >= 10000){
+                mStage = 2;
+                savePreferences();
+                isPause = true;
+                Intent intent = new Intent(mContext, RandomPlotActivity.class);
+                mContext.startActivity(intent);
+                mActivity.finish();
+                return;
+            }
+
             startPopulationGrowthTimer();
         }, 1000);
     }
@@ -184,7 +200,7 @@ public class CitySimulation {
         }, 1000);
     }
 
-    public static void Unpause(){
+    public static void unpause(){
         isPause = false;
     }
 
@@ -210,8 +226,6 @@ public class CitySimulation {
         editor.putInt(KEY_FOOD_MAX, upgrades[3]);
         editor.apply();
     }
-
-
 
     private void setUpgradeClickListeners(){
         townUpgradeFragment.binding.upgradeCoinPerClickBtn.setOnClickListener(new View.OnClickListener() {
@@ -317,6 +331,13 @@ public class CitySimulation {
         }
     }
 
+    public static void randomEventUnpause(int money, int happiness, int food){
+        mMoney += money;
+        mCurrentHappiness += happiness;
+        mCurrentFood += food;
+        isPause = false;
+    }
+
     public void createClickListeners(){
         setUpgradeClickListeners();
     }
@@ -338,7 +359,6 @@ public class CitySimulation {
         });
     }
 
-    // Getters and setters
     public int getMoney() {
         return mMoney;
     }

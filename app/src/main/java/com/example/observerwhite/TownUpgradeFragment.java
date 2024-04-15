@@ -20,12 +20,12 @@ public class TownUpgradeFragment extends BottomSheetDialogFragment {
     private int upgradeFoodMaxPrice;
 
     private String[] entertainmentBuyUpgrades = new String[]{
-            "Провести ярмарку", "Цирковое представление", "Городские игры",
-            "Театральное представление", "Музыкальный фестиваль", "День города"
+            "Провести ярмарку", "Цирковое шоу", "Городские игры",
+            "Театральное шоу", "Фестиваль музыки", "День города"
     };
     private String[] entertainmentMaxUpgrades = new String[]{
             "Построить цирк", "Построить театр", "Построить арену",
-            "Построить площадь", "Парк развлечений", "Построить сцену"
+            "Городская площадь", "Парк развлечений", "Построить сцену"
     };
     private String[] foodBuyUpgrades = new String[]{
             "Собрать пшеницу", "Сделать хлеб", "Развести коров",

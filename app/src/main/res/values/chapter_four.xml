@@ -1,17 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="chapter_4_messages">
-        <item>Что ты думаешь?</item>
-        <item>Что ты дурак?</item>
+        <item>...</item>
+
+        <item>Приветствую тебя</item>
+        <item>В твоей голове так много вопросов и так мало ответов?</item>
+        <item>Я Хранитель Миров, как обычно меня называют, слежу за привычным ходом вещей</item>
+        <item>Миров много, ты был лишь в нескольких из них</item>
+        <item>Все миры реальны, как и существа, населяющие их. Есть сущности, которые их контролируют, с некоторыми из них ты столкнулся ранее</item>
+        <item>Все миры используются для Завода, который перерабатывает энергию миров для Сущности</item>
+        <item>Сущность - это все, а все - есть Сущность. Она повсюду, она эфемерна и является материей для всех объектов</item>
+        <item>Сущность - как фундамент, я ее охраняю. Путешествую между мирами, останавливаю тех, кто может нарушить ход вещей. Обычно достаточно дать им власть в своем мире, и они успокаиваются</item>
+        <item>Возможно, однажды ты узнаешь и это, ведь ты Наблюдатель</item>
+        <item>Сейчас ты не помнишь, как здесь оказался и с какой целью, но это твое предназначение. Скоро ты узнаешь немного больше и выполнишь свою миссию</item>
+
+        <item>Сейчас не время, мне пора идти</item>
+        <item>Пора возвращаться</item>
+        <item>Я всегда с вами</item>
+        <item>Хихихи</item>
+        <item>Это еще не конец, а только начало. Конец начала, но не начало конца</item>
+        <item>Увидимся, хихихи</item>
+
+        <item>Продолжение следует</item>
+
     </string-array>
 
     <string-array name="chapter_4_answers">
-        <item>1/ничего</item>
-        <item>2/ничего/чего</item>
+        <item>1/...</item>
+
+        <item>2/кто ты?/где я?</item>
+        <item>2/да.../кто ты?</item>
+        <item>1/миры?</item>
+        <item>1/они реальны?</item>
+        <item>1/завод?</item>
+        <item>1/сущность?</item>
+        <item>1/что делаешь ты?</item>
+        <item>1/какую опасность?</item>
+        <item>1/я ничего не помню</item>
+        <item>1/расскажи обо мне</item>
+
+        <item>1/до встречи</item>
+        <item>1/откуда ты здесь?</item>
+        <item>1/...</item>
+        <item>1/снова ты?</item>
+        <item>1/я не понимаю</item>
+        <item>1/увидимся</item>
+
+        <item>1/...</item>
+
     </string-array>
 
     <string-array name="chapter_4_parameters">
-        <item>ic_launcher_background/coin</item>
-        <item>ic_launcher_background/coin</item>
+        <item>0/0</item>
+
+        <item>0/worlds_custodian</item>
+        <item>0/worlds_custodian</item>
+        <item>0/worlds_custodian</item>
+        <item>0/worlds_custodian</item>
+        <item>0/worlds_custodian</item>
+        <item>0/worlds_custodian</item>
+        <item>0/worlds_custodian</item>
+        <item>0/worlds_custodian</item>
+        <item>0/worlds_custodian</item>
+        <item>0/worlds_custodian</item>
+
+        <item>0/worlds_custodian</item>
+        <item>0/magician</item>
+        <item>0/magician</item>
+        <item>0/kyle_fun</item>
+        <item>0/kyle</item>
+        <item>0/kyle_fun</item>
+
+        <item>0/0</item>
+
+
     </string-array>
 </resources>

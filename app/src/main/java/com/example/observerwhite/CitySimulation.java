@@ -81,7 +81,7 @@ public class CitySimulation {
             mMoney = 0;
             mCurrentHappiness = 100;
             mCurrentFood =  100;
-            mPopulation = 100;
+            mPopulation = 9950;
             mStage = 1;
             mMoneyClickCoef = 1;
             mHappinessMax = 100;

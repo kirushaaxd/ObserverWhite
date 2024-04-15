@@ -3,6 +3,7 @@ package com.example.observerwhite;
 import static java.lang.Integer.parseInt;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -84,6 +85,13 @@ public class RandomPlotActivity extends AppCompatActivity {
             saveChapter();
             Toast.makeText(this, "Новая глава", Toast.LENGTH_SHORT).show();
             LoadChapterInfo(chapter);
+        }
+        else{
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("isLoose", true);
+            AudioService.isRunning = false;
+            startActivity(intent);
+            this.finish();
         }
     }
 

@@ -81,7 +81,7 @@ public class CitySimulation {
             mMoney = 0;
             mCurrentHappiness = 100;
             mCurrentFood =  100;
-            mPopulation = 9950;
+            mPopulation = 100;
             mStage = 1;
             mMoneyClickCoef = 1;
             mHappinessMax = 100;
@@ -98,14 +98,14 @@ public class CitySimulation {
 
         } else {
             mMoney = mPrefs.getInt(KEY_MONEY, 0);
-            mCurrentHappiness = mPrefs.getInt(KEY_CURRENT_HAPPINESS, 0);
-            mCurrentFood = mPrefs.getInt(KEY_CURRENT_FOOD, 0);
-            mPopulation = mPrefs.getInt(KEY_POPULATION, 0);
+            mCurrentHappiness = mPrefs.getInt(KEY_CURRENT_HAPPINESS, 100);
+            mCurrentFood = mPrefs.getInt(KEY_CURRENT_FOOD, 100);
+            mPopulation = mPrefs.getInt(KEY_POPULATION, 100);
             mStage = mPrefs.getInt(KEY_STAGE, 1);
             mMoneyClickCoef = mPrefs.getInt(KEY_MONEY_CLICK_COEF, 1);
             mHappinessMax = mPrefs.getInt(KEY_HAPPINESS_MAX_COEF, 100);
             mFoodMax = mPrefs.getInt(KEY_FOOD_MAX_COEF, 100);
-            townUpgradeFragment.setUpgradeCoinPrice(mPrefs.getInt(KEY_UPGRADE_COIN_PRICE, 200));
+            townUpgradeFragment.setUpgradeCoinPrice(mPrefs.getInt(KEY_UPGRADE_COIN_PRICE, 250));
             townUpgradeFragment.setUpgradeEntertainmentBuyPrice(mPrefs.getInt(KEY_UPGRADE_ENTERTAINMENT_BUY_PRICE, 30));
             townUpgradeFragment.setUpgradeEntertainmentMaxPrice(mPrefs.getInt(KEY_UPGRADE_ENTERTAINMENT_MAX_PRICE, 60));
             townUpgradeFragment.setUpgradeFoodBuyPrice(mPrefs.getInt(KEY_UPGRADE_FOOD_BUY_PRICE, 30));

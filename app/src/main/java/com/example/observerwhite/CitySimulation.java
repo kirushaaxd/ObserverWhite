@@ -234,7 +234,7 @@ public class CitySimulation {
         editor.putInt(KEY_FOOD_UPGRADE, upgrades[2]);
         editor.putInt(KEY_FOOD_MAX, upgrades[3]);
         editor.apply();
-        Toast.makeText(mContext, "Автосохранение прогресса", Toast.LENGTH_SHORT);
+        Toast.makeText(mContext, "Автосохранение прогресса", Toast.LENGTH_SHORT).show();
     }
 
     private void setUpgradeClickListeners(){

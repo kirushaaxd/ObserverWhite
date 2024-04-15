@@ -82,7 +82,7 @@ public class RandomPlotActivity extends AppCompatActivity {
         else if (chapter < 4){
             chapter++;
             saveChapter();
-            Toast.makeText(this, "Новая глава", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "Новая глава", Toast.LENGTH_SHORT).show();
             LoadChapterInfo(chapter);
         }
     }

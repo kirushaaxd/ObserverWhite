@@ -29,6 +29,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/text"
             style="@style/MenuButton"
             android:gravity="start"
             android:textAllCaps="false"
@@ -37,20 +38,16 @@
             android:layout_height="200dp"
             android:text="Здесь какой то текст, его вероятно много, Здесь какой то текст, его вероятно много"/>
 
-        <com.google.android.material.button.MaterialButton
-            style="@style/MenuButton"
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:layout_gravity="center_horizontal"
-            android:text="Выбор 1" />
+
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn"
             style="@style/MenuButton"
             android:layout_width="match_parent"
             android:layout_marginTop="16dp"
             android:layout_height="65dp"
             android:layout_gravity="center_horizontal"
-            android:text="Выбор 2" />
+            android:text="Покинуть пост" />
 
     </LinearLayout>
 

@@ -17,11 +17,11 @@
         <item>Прошли выборы в стране. Повысились налоги</item>
     </string-array>
     <integer-array name="political_money_decreases">
-        <item>-40</item>
-        <item>-25</item>
-        <item>50</item>
-        <item>55</item>
-        <item>35</item>
-        <item>-35</item>
+        <item>-90</item>
+        <item>-75</item>
+        <item>90</item>
+        <item>85</item>
+        <item>65</item>
+        <item>-55</item>
     </integer-array>
 </resources>

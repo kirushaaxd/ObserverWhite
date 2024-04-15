@@ -138,7 +138,10 @@ public class CitySimulation {
                 growthRate = 1; // Минимальная скорость роста населения
             }
 
-            mPopulation += (new Random().nextInt(3) + 1) * growthRate;
+            int growth = (new Random().nextInt(3) + 1) * growthRate;
+            if (growth > 40)
+                growth = 40;
+            mPopulation += growth;
 
             if(mPopulation >= 10000){
                 mStage = 2;

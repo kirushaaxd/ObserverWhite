@@ -34,19 +34,35 @@ public class EndGameDialog extends DialogFragment {
 
         builder.setView(binding.getRoot());
 
+        builder.setCancelable(true);
 
-        builder.setMessage(dialogText)
-                .setNeutralButton("Ок", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dismiss();
-                        Intent intent = new Intent(getActivity(), MainActivity.class);
-                        intent.putExtra("isLoose", true);
-                        startActivity(intent);
-                        getActivity().finish();
-                    }
-                });
+        binding.text.setText(dialogText);
+
+        binding.btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                intent.putExtra("isLoose", true);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
 
         return builder.create();
+
+//        builder.setMessage(dialogText)
+//                .setNeutralButton("Ок", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dismiss();
+//                        Intent intent = new Intent(getActivity(), MainActivity.class);
+//                        intent.putExtra("isLoose", true);
+//                        startActivity(intent);
+//                        getActivity().finish();
+//                    }
+//                });
+//
+//        return builder.create();
     }
 }

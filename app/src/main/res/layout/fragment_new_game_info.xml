@@ -19,7 +19,7 @@
             android:textAllCaps="false"
             android:layout_marginVertical="16dp"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="300dp"
             android:text="Здесь какой то текст, его вероятно много, Здесь какой то текст, его вероятно много"/>
 
         <com.google.android.material.button.MaterialButton

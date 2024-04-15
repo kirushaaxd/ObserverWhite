@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.fragment.app.FragmentManager;
 
@@ -80,12 +81,12 @@ public class CitySimulation {
             mMoney = 0;
             mCurrentHappiness = 100;
             mCurrentFood =  100;
-            mPopulation = 10;
+            mPopulation = 100;
             mStage = 1;
             mMoneyClickCoef = 1;
             mHappinessMax = 100;
             mFoodMax = 100;
-            townUpgradeFragment.setUpgradeCoinPrice(200);
+            townUpgradeFragment.setUpgradeCoinPrice(250);
             townUpgradeFragment.setUpgradeEntertainmentBuyPrice(30);
             townUpgradeFragment.setUpgradeEntertainmentMaxPrice(60);
             townUpgradeFragment.setUpgradeFoodBuyPrice(30);
@@ -132,7 +133,7 @@ public class CitySimulation {
                 return;
             }
 
-            int growthRate = mPopulation / 100; // Например, на каждые 1000 человек добавляется 1 человек роста
+            int growthRate = mPopulation / 300; // Например, на каждые 1000 человек добавляется 1 человек роста
             if (growthRate < 1) {
                 growthRate = 1; // Минимальная скорость роста населения
             }
@@ -144,8 +145,9 @@ public class CitySimulation {
                 savePreferences();
                 isPause = true;
                 Intent intent = new Intent(mContext, RandomPlotActivity.class);
-                mContext.startActivity(intent);
+                AudioService.changeChapter = true;
                 mActivity.finish();
+                mContext.startActivity(intent);
                 return;
             }
 
@@ -180,7 +182,7 @@ public class CitySimulation {
             if(mCurrentHappiness <= 0){
                 isPause = true;
                 EndGameDialog endGameDialog = new EndGameDialog();
-                endGameDialog.dialogText = "Неудовлетворенность вызвало восстание горожан! Это конец.";
+                endGameDialog.dialogText = "Неудовлетворенность вызвала восстание горожан! Это конец.";
                 endGameDialog.show(fm, "END GAME");
                 return;
             }
@@ -225,6 +227,7 @@ public class CitySimulation {
         editor.putInt(KEY_FOOD_UPGRADE, upgrades[2]);
         editor.putInt(KEY_FOOD_MAX, upgrades[3]);
         editor.apply();
+        Toast.makeText(mContext, "Автосохранение прогресса", Toast.LENGTH_SHORT);
     }
 
     private void setUpgradeClickListeners(){
@@ -235,7 +238,7 @@ public class CitySimulation {
                 if (mMoney >= price){
                     mMoneyClickCoef += 1;
                     mMoney -= price;
-                    townUpgradeFragment.setUpgradeCoinPrice((int) (price * 2.5));
+                    townUpgradeFragment.setUpgradeCoinPrice((int) (price * 3.5));
                     townUpgradeFragment.updateView();
                 }
             }
@@ -252,7 +255,7 @@ public class CitySimulation {
                         mCurrentHappiness = mHappinessMax;
 
                     mMoney -= price;
-                    townUpgradeFragment.setUpgradeEntertainmentBuyPrice((int) (price * 1.05));
+                    townUpgradeFragment.setUpgradeEntertainmentBuyPrice((int) (price * 1.1));
 
                     int[] upgrades = townUpgradeFragment.getUpgradeLevel();
                     upgrades[0]++;
@@ -270,7 +273,7 @@ public class CitySimulation {
                 if (mMoney >= price){
                     mHappinessMax += 15;
                     mMoney -= price;
-                    townUpgradeFragment.setUpgradeEntertainmentMaxPrice((int) (price * 1.05));
+                    townUpgradeFragment.setUpgradeEntertainmentMaxPrice((int) (price * 1.3));
 
                     int[] upgrades = townUpgradeFragment.getUpgradeLevel();
                     upgrades[1]++;
@@ -292,7 +295,7 @@ public class CitySimulation {
                         mCurrentFood = mFoodMax;
 
                     mMoney -= price;
-                    townUpgradeFragment.setUpgradeFoodBuyPrice((int) (price * 1.05));
+                    townUpgradeFragment.setUpgradeFoodBuyPrice((int) (price * 1.1));
 
                     int[] upgrades = townUpgradeFragment.getUpgradeLevel();
                     upgrades[2]++;
@@ -310,7 +313,7 @@ public class CitySimulation {
                 if (mMoney >= price){
                     mFoodMax += 15;
                     mMoney -= price;
-                    townUpgradeFragment.setUpgradeFoodMaxPrice((int) (price * 1.05));
+                    townUpgradeFragment.setUpgradeFoodMaxPrice((int) (price * 1.3));
 
                     int[] upgrades = townUpgradeFragment.getUpgradeLevel();
                     upgrades[3]++;

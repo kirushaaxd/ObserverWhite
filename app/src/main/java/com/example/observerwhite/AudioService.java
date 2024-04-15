@@ -9,6 +9,7 @@ import android.os.IBinder;
 public class AudioService extends Service{
     static MediaPlayer player;
     static boolean isRunning = false;
+    static boolean changeChapter = false;
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -16,13 +17,21 @@ public class AudioService extends Service{
     }
 
     public static void create(Context context){
-        player = MediaPlayer.create(context, R.raw.music); //select music file
+        player = MediaPlayer.create(context, R.raw.observer_white_1); //select music file
         player.setLooping(true); //set looping
         player.start();
     }
 
+    public static void create2(Context context){
+        player.release();
+        player = MediaPlayer.create(context, R.raw.observer_white_2); //select music file
+        player.setLooping(true); //set looping
+        player.start();
+    }
+
+
     public void onCreate() {
-        player = MediaPlayer.create(this, R.raw.music); //select music file
+        player = MediaPlayer.create(this, R.raw.observer_white_1); //select music file
         player.setLooping(true); //set looping
     }
 

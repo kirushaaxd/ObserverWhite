@@ -3,9 +3,11 @@ package com.example.observerwhite;
 import static java.lang.Integer.parseInt;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -77,8 +79,10 @@ public class RandomPlotActivity extends AppCompatActivity {
             process(pos);
             pos++;
         }
-        else{
+        else if (chapter < 4){
             chapter++;
+            saveChapter();
+            Toast.makeText(this, "Новая глава", Toast.LENGTH_SHORT);
             LoadChapterInfo(chapter);
         }
     }
@@ -91,7 +95,10 @@ public class RandomPlotActivity extends AppCompatActivity {
         binding = ActivityRandomPlotBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        chapter = 2;
+        AudioService.create2(this);
+
+        SharedPreferences sp = getSharedPreferences("CityPrefs", Context.MODE_PRIVATE);
+        chapter = sp.getInt("stage", 2);
 
         binding.firstBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,6 +113,14 @@ public class RandomPlotActivity extends AppCompatActivity {
                 nextStep();
             }
         });
+    }
+
+    public void saveChapter(){
+        SharedPreferences sp = getSharedPreferences("CityPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+
+        editor.putInt("stage", chapter);
+        editor.apply();
     }
 
     @Override

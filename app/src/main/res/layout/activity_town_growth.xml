@@ -120,6 +120,7 @@
 
 
         <ImageView
+            android:id="@+id/town_img"
             android:layout_width="380dp"
             android:layout_height="450dp"
             android:scaleType="fitXY"

@@ -39,6 +39,7 @@ public class EndGameDialog extends DialogFragment {
                         getActivity().finish();
                     }
                 });
+
         return builder.create();
     }
 }

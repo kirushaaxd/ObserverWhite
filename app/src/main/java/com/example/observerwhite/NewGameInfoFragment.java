@@ -27,7 +27,8 @@ public class NewGameInfoFragment extends DialogFragment {
         builder.setView(binding.getRoot());
         builder.setCancelable(true);
 
-        binding.infoText.setText("Текст перед началом игры");
+        binding.infoText.setText("Вы были избраны на должность правителя города. Следите за параметрами Довольства и Еды в городе, " +
+                "иначе горожане могут взбунтоваться против вас. Удачи!");
 
         TownGrowthActivity.createInfoNewGameClickListener();
 

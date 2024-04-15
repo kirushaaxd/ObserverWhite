@@ -39,6 +39,12 @@ public class TownGrowthActivity extends AppCompatActivity {
 
         binding.happinessText.setText(String.valueOf(citySimulation.getCurrentHappiness()));
         binding.foodText.setText(String.valueOf(citySimulation.getCurrentFood()));
+        binding.populationText.setText(String.valueOf(citySimulation.getPopulation()));
+
+        if (citySimulation.getPopulation() < 4000)
+            binding.townImg.setImageResource(R.drawable.small_village);
+        else
+            binding.townImg.setImageResource(R.drawable.village);
 
         binding.increaseMoneyBtn.setOnClickListener(v -> {
             int currentMoney = citySimulation.getMoney();
@@ -78,6 +84,8 @@ public class TownGrowthActivity extends AppCompatActivity {
 
     private void updateUI() {
         mHandler.postDelayed(() -> {
+            if (citySimulation.getPopulation() > 4000)
+                binding.townImg.setImageResource(R.drawable.village);
             binding.moneyText.setText(String.valueOf(citySimulation.getMoney()));
             binding.happinessText.setText(String.valueOf(citySimulation.getCurrentHappiness()));
             binding.foodText.setText(String.valueOf(citySimulation.getCurrentFood()));
@@ -93,13 +101,13 @@ public class TownGrowthActivity extends AppCompatActivity {
     }
 
     public void onPause(){
-        if (!nextLevel)
+        if (!nextLevel && !AudioService.changeChapter)
             AudioService.player.pause();
         super.onPause();
     }
 
     public void onDestroy(){
-        if (!nextLevel)
+        if (!nextLevel && !AudioService.changeChapter)
             AudioService.player.pause();
         super.onDestroy();
     }

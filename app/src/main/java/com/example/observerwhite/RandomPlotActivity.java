@@ -87,6 +87,11 @@ public class RandomPlotActivity extends AppCompatActivity {
             LoadChapterInfo(chapter);
         }
         else{
+            SharedPreferences sp = getSharedPreferences("CityPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sp.edit();
+
+            editor.putInt("stage", 1);
+            editor.apply();
             Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra("isLoose", true);
             AudioService.isRunning = false;

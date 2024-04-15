@@ -133,7 +133,7 @@ public class CitySimulation {
                 return;
             }
 
-            int growthRate = mPopulation / 300; // Например, на каждые 1000 человек добавляется 1 человек роста
+            int growthRate = mPopulation / 230; // Например, на каждые 1000 человек добавляется 1 человек роста
             if (growthRate < 1) {
                 growthRate = 1; // Минимальная скорость роста населения
             }
@@ -166,7 +166,7 @@ public class CitySimulation {
             randomEventFragment.show(fm, "RANDOM EVENT");
 
             startRandomEventTimer();
-        }, new Random().nextInt(31000) + 30000);
+        }, new Random().nextInt(31000) + 20000);
     }
 
     private void startHappinessAndFoodDecayTimer() {
@@ -182,6 +182,8 @@ public class CitySimulation {
             if(mCurrentHappiness <= 0){
                 isPause = true;
                 EndGameDialog endGameDialog = new EndGameDialog();
+                endGameDialog.imgResource = mContext.getResources().getIdentifier("activist", "drawable", mContext.getPackageName());
+
                 endGameDialog.dialogText = "Неудовлетворенность вызвала восстание горожан! Это конец.";
                 endGameDialog.show(fm, "END GAME");
                 return;
@@ -193,6 +195,8 @@ public class CitySimulation {
             if(mCurrentFood <= 0){
                 isPause = true;
                 EndGameDialog endGameDialog = new EndGameDialog();
+                endGameDialog.imgResource = mContext.getResources().getIdentifier("activist", "drawable", mContext.getPackageName());
+
                 endGameDialog.dialogText = "Голод вызвал восстание горожан! Это конец.";
                 endGameDialog.show(fm, "END GAME");
                 return;
@@ -255,7 +259,7 @@ public class CitySimulation {
                         mCurrentHappiness = mHappinessMax;
 
                     mMoney -= price;
-                    townUpgradeFragment.setUpgradeEntertainmentBuyPrice((int) (price * 1.1));
+                    townUpgradeFragment.setUpgradeEntertainmentBuyPrice((int) (price * 1.05));
 
                     int[] upgrades = townUpgradeFragment.getUpgradeLevel();
                     upgrades[0]++;
@@ -295,7 +299,7 @@ public class CitySimulation {
                         mCurrentFood = mFoodMax;
 
                     mMoney -= price;
-                    townUpgradeFragment.setUpgradeFoodBuyPrice((int) (price * 1.1));
+                    townUpgradeFragment.setUpgradeFoodBuyPrice((int) (price * 1.05));
 
                     int[] upgrades = townUpgradeFragment.getUpgradeLevel();
                     upgrades[2]++;

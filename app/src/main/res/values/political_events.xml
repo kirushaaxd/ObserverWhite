@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="political_images">
-        <item>@drawable/coin</item>
-        <item>@drawable/coin</item>
+        <item>@drawable/war</item>
+        <item>@drawable/activist</item>
+        <item>@drawable/president</item>
+        <item>@drawable/war</item>
+        <item>@drawable/activist</item>
+        <item>@drawable/president</item>
     </array>
     <string-array name="political_texts">
-        <item>Политическое событие 1: Все хорошо...</item>
-        <item>Политическое событие 2: Все плохо....</item>
+        <item>В соседнем государстве началась война. Пришлось отправить гуманитарную помощь</item>
+        <item>Начался митинг экоактивистов. Пришлось отправить охрану</item>
+        <item>Президент страны выделил деньги на развитие города</item>
+        <item>Война в соседней стране позволила вам нарастить экспорт товаров</item>
+        <item>За помощь в устранении митинга в столице президент помог вам с развитием городского проекта</item>
+        <item>Прошли выборы в стране. Повысились налоги</item>
     </string-array>
     <integer-array name="political_money_decreases">
-        <item>10</item>
-        <item>-15</item>
+        <item>-40</item>
+        <item>-25</item>
+        <item>50</item>
+        <item>55</item>
+        <item>35</item>
+        <item>-35</item>
     </integer-array>
 </resources>

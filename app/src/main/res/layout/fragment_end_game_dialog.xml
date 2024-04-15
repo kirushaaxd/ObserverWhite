@@ -9,12 +9,14 @@
     <ImageView
         android:id="@+id/event_image"
         android:layout_height="wrap_content"
+        android:maxHeight="350dp"
+        android:maxWidth="350dp"
         android:layout_width="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/continue_event"
-        android:scaleType="fitXY"
+        android:scaleType="fitCenter"
         android:src="@drawable/coin"
         android:layout_margin="16dp"/>
 

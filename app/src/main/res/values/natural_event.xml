@@ -2,14 +2,26 @@
 <resources>
     <integer-array name="natural_images">
         <item>@drawable/food</item>
-        <item>@drawable/food</item>
+        <item>@drawable/kyle_fun</item>
+        <item>@drawable/kyle</item>
+        <item>@drawable/destroyed2</item>
+        <item>@drawable/flood</item>
+        <item>@drawable/wheat_many</item>
     </integer-array>
     <string-array name="natural_texts">
-        <item>Природные событие 1: Все хорошо...</item>
-        <item>Природные событие 2: Все плохо....</item>
+        <item>Урожай получился меньше ожидаемого</item>
+        <item>- Хихихи, я украл немного твоих запасов из амбара, не сердись</item>
+        <item>- Ждал меня? А я вот с подарочком для тебя</item>
+        <item>Землетрясение на окраине города</item>
+        <item>Весенний паводок затопил часть города</item>
+        <item>Очень высокая урожайность позволила сохранить излишки на будущее</item>
     </string-array>
     <integer-array name="natural_money_decreases">
-        <item>10</item>
         <item>-20</item>
+        <item>-15</item>
+        <item>40</item>
+        <item>-25</item>
+        <item>-20</item>
+        <item>30</item>
     </integer-array>
 </resources>

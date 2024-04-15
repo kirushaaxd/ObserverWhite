@@ -14,19 +14,26 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+import com.example.observerwhite.databinding.FragmentEndGameDialogBinding;
+import com.example.observerwhite.databinding.FragmentNewGameInfoBinding;
+
 public class EndGameDialog extends DialogFragment {
 
     public String dialogText;
+    public int imgResource;
+    public FragmentEndGameDialogBinding binding;
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-//        LayoutInflater inflater = requireActivity().getLayoutInflater();
-//        View view = inflater.inflate(R.layout.fragment_end_game_dialog, null);
-//
-//        builder.setView(view);
+        LayoutInflater inflater = requireActivity().getLayoutInflater();
+        binding = FragmentEndGameDialogBinding.inflate(inflater);
+        binding.eventImage.setImageResource(imgResource);
+
+        builder.setView(binding.getRoot());
+
 
         builder.setMessage(dialogText)
                 .setNeutralButton("Ок", new DialogInterface.OnClickListener() {

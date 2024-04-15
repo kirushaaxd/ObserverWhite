@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer-array name="social_images">
-        <item>@drawable/entertainment</item>
-        <item>@drawable/entertainment</item>
+        <item>@drawable/circus</item>
+        <item>@drawable/activist</item>
+        <item>@drawable/kyle</item>
+        <item>@drawable/kyle_fun</item>
+        <item>@drawable/activist</item>
+        <item>@drawable/circus</item>
     </integer-array>
     <string-array name="social_texts">
-        <item>Социальное событие 1: Все хорошо...</item>
-        <item>Социальное событие 2: Все плохо....</item>
+        <item>В город приехал цирк</item>
+        <item>Местные жители недовольны количеством парков</item>
+        <item>- Ты считаешь себя отличным правителем? Как бы не так</item>
+        <item>- У меня хорошее настроение</item>
+        <item>Местные жители протестуют против повышени налогов</item>
+        <item>В город приехала театральная группа</item>
     </string-array>
     <integer-array name="social_money_decreases">
-        <item>10</item>
+        <item>20</item>
         <item>-15</item>
+        <item>-15</item>
+        <item>20</item>
+        <item>-15</item>
+        <item>15</item>
     </integer-array>
 </resources>

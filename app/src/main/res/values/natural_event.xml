@@ -8,7 +8,6 @@
         <item>@drawable/flood</item>
         <item>@drawable/wheat_many</item>
         <item>@drawable/magician</item>
-        <item>@drawable/magician</item>
     </integer-array>
     <string-array name="natural_texts">
         <item>Урожай получился меньше ожидаемого</item>
@@ -26,7 +25,6 @@
         <item>-25</item>
         <item>-20</item>
         <item>30</item>
-        <item>0</item>
         <item>0</item>
 
     </integer-array>

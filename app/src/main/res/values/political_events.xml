@@ -8,7 +8,6 @@
         <item>@drawable/president</item>
         <item>@drawable/president</item>
         <item>@drawable/magician</item>
-        <item>@drawable/magician</item>
         <item>@drawable/kyle_fun</item>
     </array>
     <string-array name="political_texts">
@@ -28,7 +27,6 @@
         <item>85</item>
         <item>65</item>
         <item>55</item>
-        <item>0</item>
         <item>0</item>
         <item>-200</item>
     </integer-array>

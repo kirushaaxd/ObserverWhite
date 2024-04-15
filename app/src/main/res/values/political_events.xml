@@ -5,7 +5,7 @@
         <item>@drawable/activist</item>
         <item>@drawable/president</item>
         <item>@drawable/war</item>
-        <item>@drawable/activist</item>
+        <item>@drawable/president</item>
         <item>@drawable/president</item>
         <item>@drawable/magician</item>
         <item>@drawable/magician</item>
@@ -15,7 +15,7 @@
         <item>Начался митинг экоактивистов. Пришлось отправить охрану</item>
         <item>Президент страны выделил деньги на развитие города</item>
         <item>Война в соседней стране позволила вам нарастить экспорт товаров</item>
-        <item>За помощь в устранении митинга в столице президент помог вам с развитием городского проекта</item>
+        <item>За вашу службу МинФин помог вам с развитием городского проекта</item>
         <item>Прошли выборы в стране. Повысились налоги</item>
         <item>- Скоро вы встретитесь с ними...</item>
     </string-array>
@@ -25,7 +25,7 @@
         <item>90</item>
         <item>85</item>
         <item>65</item>
-        <item>-55</item>
+        <item>55</item>
         <item>0</item>
         <item>0</item>
     </integer-array>

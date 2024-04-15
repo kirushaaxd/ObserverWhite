@@ -7,6 +7,8 @@
         <item>@drawable/war</item>
         <item>@drawable/activist</item>
         <item>@drawable/president</item>
+        <item>@drawable/magician</item>
+        <item>@drawable/magician</item>
     </array>
     <string-array name="political_texts">
         <item>В соседнем государстве началась война. Пришлось отправить гуманитарную помощь</item>
@@ -15,6 +17,7 @@
         <item>Война в соседней стране позволила вам нарастить экспорт товаров</item>
         <item>За помощь в устранении митинга в столице президент помог вам с развитием городского проекта</item>
         <item>Прошли выборы в стране. Повысились налоги</item>
+        <item>- Скоро вы встретитесь с ними...</item>
     </string-array>
     <integer-array name="political_money_decreases">
         <item>-90</item>
@@ -23,5 +26,7 @@
         <item>85</item>
         <item>65</item>
         <item>-55</item>
+        <item>0</item>
+        <item>0</item>
     </integer-array>
 </resources>

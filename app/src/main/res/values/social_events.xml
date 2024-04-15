@@ -7,6 +7,8 @@
         <item>@drawable/kyle_fun</item>
         <item>@drawable/activist</item>
         <item>@drawable/circus</item>
+        <item>@drawable/magician</item>
+        <item>@drawable/magician</item>
     </integer-array>
     <string-array name="social_texts">
         <item>В город приехал цирк</item>
@@ -15,6 +17,8 @@
         <item>- У меня хорошее настроение</item>
         <item>Местные жители протестуют против повышени налогов</item>
         <item>В город приехала театральная группа</item>
+        <item>- Что-то надвигается...</item>
+        <item>- Вам снились видения?</item>
     </string-array>
     <integer-array name="social_money_decreases">
         <item>20</item>
@@ -23,5 +27,7 @@
         <item>20</item>
         <item>-15</item>
         <item>15</item>
+        <item>0</item>
+        <item>0</item>
     </integer-array>
 </resources>

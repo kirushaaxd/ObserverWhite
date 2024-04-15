@@ -7,6 +7,8 @@
         <item>@drawable/destroyed2</item>
         <item>@drawable/flood</item>
         <item>@drawable/wheat_many</item>
+        <item>@drawable/magician</item>
+        <item>@drawable/magician</item>
     </integer-array>
     <string-array name="natural_texts">
         <item>Урожай получился меньше ожидаемого</item>
@@ -15,6 +17,7 @@
         <item>Землетрясение на окраине города</item>
         <item>Весенний паводок затопил часть города</item>
         <item>Очень высокая урожайность позволила сохранить излишки на будущее</item>
+        <item>- Вы не теряете связь с реальностью?</item>
     </string-array>
     <integer-array name="natural_money_decreases">
         <item>-20</item>
@@ -23,5 +26,8 @@
         <item>-25</item>
         <item>-20</item>
         <item>30</item>
+        <item>0</item>
+        <item>0</item>
+
     </integer-array>
 </resources>

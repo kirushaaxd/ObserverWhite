@@ -9,6 +9,7 @@
         <item>@drawable/president</item>
         <item>@drawable/magician</item>
         <item>@drawable/magician</item>
+        <item>@drawable/kyle_fun</item>
     </array>
     <string-array name="political_texts">
         <item>В соседнем государстве началась война. Пришлось отправить гуманитарную помощь</item>
@@ -18,6 +19,7 @@
         <item>За вашу службу МинФин помог вам с развитием городского проекта</item>
         <item>Прошли выборы в стране. Повысились налоги</item>
         <item>- Скоро вы встретитесь с ними...</item>
+        <item>- Эх ты, скучный такой. Давай-ка я тебе покажу веселый фокус с исчезновением?</item>
     </string-array>
     <integer-array name="political_money_decreases">
         <item>-90</item>
@@ -28,5 +30,6 @@
         <item>55</item>
         <item>0</item>
         <item>0</item>
+        <item>-200</item>
     </integer-array>
 </resources>
